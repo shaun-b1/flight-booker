@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Flight.delete_all
+Airport.delete_all
+
+AIRPORTS = {
+    ATL: { LAX: 240, ORD: 115, DFW: 141, DEN: 202, JFK: 130, SFO: 325, SEA: 333, LAS: 271, MCO: 80},
+    LAX: { ATL: 240, ORD: 239, DFW: 168, DEN: 138, JFK: 307, SFO: 83, SEA: 150, LAS: 62, MCO: 274},
+    ORD: { ATL: 115, LAX: 239, DFW: 137, DEN: 159, JFK: 125, SFO: 278, SEA: 269, LAS: 232, MCO: 154},
+    DFW: { ATL: 141, LAX: 168, ORD: 137, DEN: 110, JFK: 204, SFO: 228, SEA: 261, LAS: 174, MCO: 146}, 
+    DEN: { ATL: 202, LAX: 138, ORD: 159, DFW: 110, JFK: 211, SFO: 165, SEA: 178, LAS: 111, MCO: 210}, 
+    JFK: { ATL: 130, LAX: 307, ORD: 125, DFW: 204, DEN: 211, SFO: 391, SEA: 371, LAS: 351, MCO: 171}, 
+    SFO: { ATL: 325, LAX: 83, ORD: 278, DFW: 228, DEN: 165, JFK: 391, SEA: 120, LAS: 91, MCO: 303}, 
+    SEA: { ATL: 333, LAX: 150, ORD: 269, DFW: 261, DEN: 178, JFK: 371, SFO: 120, LAS: 136, MCO: 316}, 
+    LAS: { ATL: 271, LAX: 62, ORD: 232, DFW: 174, DEN: 111, JFK: 351, SFO: 91, SEA: 136, MCO: 407}, 
+    MCO: { ATL: 80, LAX: 274, ORD: 154, DFW: 146, DEN: 210, JFK: 171, SFO: 303, SEA: 316, LAS: 407}
+}
+
+AIRPORTS.each_key do |airport_code|
+    Airport.create(airport_code: airport_code)
+end
+
+

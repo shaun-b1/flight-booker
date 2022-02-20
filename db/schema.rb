@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_20_131930) do
+ActiveRecord::Schema.define(version: 2022_02_20_163232) do
 
   create_table "airports", force: :cascade do |t|
     t.string "airport_code"
@@ -19,12 +19,13 @@ ActiveRecord::Schema.define(version: 2022_02_20_131930) do
   end
 
   create_table "flights", force: :cascade do |t|
-    t.datetime "flight_departure_time"
+    t.date "flight_departure_date"
     t.time "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "departure_airport_id"
     t.integer "arrival_airport_id"
+    t.time "flight_departure_time"
     t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
     t.index ["departure_airport_id"], name: "index_flights_on_departure_airport_id"
   end
