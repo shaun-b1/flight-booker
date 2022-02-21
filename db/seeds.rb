@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'date'
+require 'faker'
 
 Flight.delete_all
 Airport.delete_all
@@ -26,4 +28,28 @@ AIRPORTS.each_key do |airport_code|
     Airport.create(airport_code: airport_code)
 end
 
+first_day = Date.today + 1
+last_day = first_day + 1
+
+def pair_airports 
+    AIRPORTS.keys.map(&:to_s).permutation(2)
+end
+
+def flight_duration(array)
+    AIRPORTS[array[0].to_sym][array[1].to_sym]
+end
+
+def daytime
+    Faker::Time.between_dates(from: Date.today - 1, to: Date.today, period: :day)
+end
+
+(first_day...last_day).each do |day|
+    pair_airports.each do |pair|
+        Flight.create(departure_airport_id: Airport.find_by(airport_code: pair[0]).id,
+                      arrival_airport_id: Airport.find_by(airport_code: pair[1]).id,
+                      flight_departure_date: day,
+                      flight_departure_time: daytime,
+                      duration: flight_duration(pair))
+    end
+end
 
