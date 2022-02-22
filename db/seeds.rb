@@ -29,7 +29,7 @@ AIRPORTS.each_key do |airport_code|
 end
 
 first_day = Date.today + 1
-last_day = first_day + 1
+last_day = first_day + 5
 
 def pair_airports 
     AIRPORTS.keys.map(&:to_s).permutation(2)

@@ -3,6 +3,7 @@ class FlightsController < ApplicationController
 
   # GET /flights or /flights.json
   def index
+    @airports = Airport.all
     @flights = Flight.search(params[:departure_airport], params[:arrival_airport])
   end
 
