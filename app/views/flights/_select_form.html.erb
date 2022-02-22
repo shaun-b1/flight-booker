@@ -1,0 +1,13 @@
+<%= form_with url:(flights_path) , method: :get do |form| %>
+
+   <%= form.collection_select :departure_airport, @airports.order(:name), :airport_code, :airport_code %>
+
+   <%= form.collection_select :arrival_airport, @airports.order(:name), :airport_code, :airport_code %>
+
+    <!--<date name="departure_date">
+
+    </date> -->
+
+        <%= submit_tag("Find Flights", :name => nil) %>
+
+<% end %>
