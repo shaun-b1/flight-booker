@@ -4,21 +4,12 @@
 
 <%= render "select_form"%>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% if @flights.empty? %>
+    <p>No flights match your search options</p>
+<% else %>
+    <ul>
     <% @flights.each do |flight| %>
-      <tr>
-        <td><%= puts flight.departure_airport.airport_code %></td>
-        <td><%= link_to 'Show', flight %></td>
-        <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
-        <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <li><%= "departing at #{flight.flight_departure_time.strftime("%I:%M %p")} from #{flight.departure_airport.airport_code}, arriving at #{flight.flight_departure_time + " %></li>
     <% end %>
-  </tbody>
-</table>
+    </ul>
+<% end %>

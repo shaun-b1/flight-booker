@@ -8,7 +8,7 @@ class Flight < ApplicationRecord
             if departure_airport && arrival_airport
                 self.where(departure_airport_id: departure_airport.id).where(arrival_airport_id: arrival_airport.id)
             else 
-                @flights = Flight.all
+                Flight.none
             end 
     end
 end
