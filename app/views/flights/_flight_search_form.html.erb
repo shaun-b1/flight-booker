@@ -1,0 +1,29 @@
+<%= form_with url: "/flights", method: :get do |form| %>
+    <%= form.label :departure_airport, "Departing from:" %>
+    <%= form.select :departure_airport, [["Atlanta Hartsfield–Jackson International Airport, GA", "ATL"],
+                                         ["Los Angeles International Airport, CA", "LAX"],
+                                         ["O'Hare International Airport, IL", "ORD"],
+                                         ["Dallas/Fort Worth International Airport, TX", "DFW"],
+                                         ["Denver International Airport, CO", "DEN"],
+                                         ["John F. Kennedy International Airport, NY", "JFK"],
+                                         ["San Francisco International Airport, CA", "SFO"],
+                                         ["Seattle–Tacoma International Airport, WA", "SEA"],
+                                         ["Harry Reid International Airport, NV", "LAS"],
+                                         ["Orlando International Airport, FL", "MCO"]], prompt: true, require: true %>
+    <%= form.label :arrival_airport, "Flying to:" %>
+    <%= form.select :arrival_airport, [["Atlanta Hartsfield–Jackson International Airport, GA", "ATL"],
+                                        ["Los Angeles International Airport, CA", "LAX"],
+                                        ["O'Hare International Airport, IL", "ORD"],
+                                        ["Dallas/Fort Worth International Airport, TX", "DFW"],
+                                        ["Denver International Airport, CO", "DEN"],
+                                        ["John F. Kennedy International Airport, NY", "JFK"],
+                                        ["San Francisco International Airport, CA", "SFO"],
+                                        ["Seattle–Tacoma International Airport, WA", "SEA"],
+                                        ["Harry Reid International Airport, NV", "LAS"],
+                                        ["Orlando International Airport, FL", "MCO"]], prompt: true, require:true %>
+    <%= form.label :passengers, "Number of Passengers:"%>
+    <%= form.select :passengers, 1..4, prompt: true, require: true %>
+    <%= form.label :flight_departure_date, "Select Travel Date:" %>
+    <%= form.date_field :flight_departure_date %>
+    <%= submit_tag("Find Flights", name: nil) %>
+<% end %>

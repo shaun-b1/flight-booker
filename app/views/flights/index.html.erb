@@ -2,14 +2,10 @@
 
 <h1>Flights</h1>
 
-<%= render "select_form"%>
+<%= render "flight_search_form" %>
 
-<% if @flights.empty? %>
-    <p>No flights match your search options</p>
+<% if @results.empty? %>
+    <p>No flights match your query</p>
 <% else %>
-    <ul>
-    <% @flights.each do |flight| %>
-        <li><%= "departing at #{flight.flight_departure_time.strftime("%I:%M %p")} from #{flight.departure_airport.airport_code}, arriving at #{flight.flight_departure_time + " %></li>
-    <% end %>
-    </ul>
+    <%= render "flight_picker_form" %>
 <% end %>

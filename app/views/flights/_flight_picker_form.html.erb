@@ -1,0 +1,11 @@
+<%= form_with url: "/results", method: :get do |form| %>
+  <% form.hidden_field :passengers, value: params[:passengers] %> 
+  <%= form.collection_radio_buttons :flights, @results.order(flight_departure_time: :asc), :flight_departure_date, :flight_information %>
+  <%= submit_tag("Book Flights", name: nil) %>
+<% end %>
+
+
+
+
+
+    <!--<%= form.label :flight, "departing at #{flight.flight_departure_time.strftime("%I:%M %p")} from #{flight.departure_airport.airport_code}, arriving at #{(flight.flight_departure_time + flight.duration.minutes).strftime("%I:%M %p")} in #{flight.arrival_airport.airport_code}" -->

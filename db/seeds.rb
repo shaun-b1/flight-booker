@@ -44,12 +44,14 @@ def daytime
 end
 
 (first_day...last_day).each do |day|
-    pair_airports.each do |pair|
-        Flight.create(departure_airport_id: Airport.find_by(airport_code: pair[0]).id,
-                      arrival_airport_id: Airport.find_by(airport_code: pair[1]).id,
-                      flight_departure_date: day,
-                      flight_departure_time: daytime,
-                      duration: flight_duration(pair))
+    3.times do 
+        pair_airports.each do |pair|
+            Flight.create(departure_airport_id: Airport.find_by(airport_code: pair[0]).id,
+                        arrival_airport_id: Airport.find_by(airport_code: pair[1]).id,
+                        flight_departure_date: day,
+                        flight_departure_time: daytime,
+                        duration: flight_duration(pair))
+        end 
     end
 end
 
