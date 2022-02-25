@@ -1,4 +1,4 @@
-<%= form_with url: "/results", method: :get do |form| %>
+<%= form_with url: "/flights", method: :get do |form| %>
   <% form.hidden_field :passengers, value: params[:passengers] %> 
   <%= form.collection_radio_buttons :flights, @results.order(flight_departure_time: :asc), :flight_departure_date, :flight_information %>
   <%= submit_tag("Book Flights", name: nil) %>
