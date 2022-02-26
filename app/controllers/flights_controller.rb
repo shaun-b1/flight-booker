@@ -4,14 +4,14 @@ class FlightsController < ApplicationController
   def index
     @airports = Airport.all
     @flights = Flight.all
-    @results = Flight.search(params[:departure_airport], params[:arrival_airport], params[:flight_departure_date])
+    @results = Flight.search(params[:departure_airport], params[:arrival_airport], params[:departure_date])
   end
 
   private
 
     # Only allow a list of trusted parameters through.
     def flight_params
-      params.require(:flight).permit(:departure_airport, :arrival_airport, :flight_departure_date, :passengers)
+      params.require(:flight).permit(:departure_airport, :arrival_airport, :departure_date, :passengers)
     end
 
     def results_params

@@ -48,9 +48,9 @@ end
         pair_airports.each do |pair|
             Flight.create(departure_airport_id: Airport.find_by(airport_code: pair[0]).id,
                         arrival_airport_id: Airport.find_by(airport_code: pair[1]).id,
-                        flight_departure_date: day,
-                        flight_departure_time: daytime,
-                        duration: flight_duration(pair))
+                        departure_date: day,
+                        departure_time: daytime,
+                        flight_time: flight_duration(pair))
         end 
     end
 end

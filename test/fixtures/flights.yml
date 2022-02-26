@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  flight_departure_time: 2022-02-20 13:00:06
-  duration: 2022-02-20 13:00:06
+  departure_time: 2022-02-20 13:00:06
+  flight_time: 2022-02-20 13:00:06
 
 two:
-  flight_departure_time: 2022-02-20 13:00:06
-  duration: 2022-02-20 13:00:06
+  departure_time: 2022-02-20 13:00:06
+  flight_time: 2022-02-20 13:00:06

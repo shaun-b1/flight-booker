@@ -23,7 +23,7 @@
                                         ["Orlando International Airport, FL", "MCO"]], prompt: true, require:true %>
     <%= form.label :passengers, "Number of Passengers:"%>
     <%= form.select :passengers, 1..4, prompt: true, require: true %>
-    <%= form.label :flight_departure_date, "Select Travel Date:" %>
-    <%= form.date_field :flight_departure_date %>
+    <%= form.label :departure_date, "Select Travel Date:" %>
+    <%= form.date_field :departure_date %>
     <%= submit_tag("Find Flights", name: nil) %>
 <% end %>
