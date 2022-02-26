@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2022_02_21_111608) do
     t.integer "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "departure_airport_id", foreign_key: true
-    t.integer "arrival_airport_id", foreign_key: true
+    t.integer "departure_airport_id"
+    t.integer "arrival_airport_id"
     t.time "flight_departure_time"
     t.index ["arrival_airport_id"], name: "index_flights_on_arrival_airport_id"
     t.index ["departure_airport_id"], name: "index_flights_on_departure_airport_id"
