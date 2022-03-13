@@ -3,7 +3,6 @@ class FlightsController < ApplicationController
   # GET /flights or /flights.json
   def index
     @airports = Airport.all
-    @flights = Flight.all
     @results = Flight.search(params[:departure_airport], params[:arrival_airport], params[:departure_date])
   end
 
@@ -14,7 +13,4 @@ class FlightsController < ApplicationController
       params.require(:flight).permit(:departure_airport, :arrival_airport, :departure_date, :passengers)
     end
 
-    def results_params
-      params.require(:result).permit(:flight, :passengers)
-    end 
 end
