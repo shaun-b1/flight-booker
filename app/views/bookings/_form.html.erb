@@ -1,0 +1,27 @@
+<% if @booking.errors.any? %>
+    <% @booking.errors.full_messages.each do |message| %>
+      <%= message %>
+    <% end %>
+<% end %>
+
+<%= form_with model: @booking, local: true do |form| %>
+
+    <%= form.hidden_field :flight_id, value: params[:flight] %>
+
+    <%= form.fields_for :passengers do |passenger| %>
+
+        <%= passenger.label :name, "Name:" %>
+        <%= passenger.text_field :name, 
+                                 required: true,
+                                 placeholder: 'Foo' %>
+
+        <%= passenger.label :email, "Email:" %>
+        <%= passenger.email_field :email, 
+                                  required: true, 
+                                  placeholder: 'foo@bar.com' %>
+
+    <% end %>
+
+    <%= form.submit %>
+
+<% end %>

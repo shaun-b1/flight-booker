@@ -1,5 +1,5 @@
-<%= form_with url: "/bookings/new", method: :get do |form| %>
-  <%= form.hidden_field :numbers, value: params[:passengers] %> 
+<%= form_with url: "/bookings/new/", method: :get do |form| %>
+  <%= form.hidden_field :passenger_count, value: params[:passengers] %> 
   <%= form.collection_radio_buttons :flight, @results.order(departure_time: :asc), :id, :flight_information %>
   <%= submit_tag("Book Flights", name: nil) %>
 <% end %>
