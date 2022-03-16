@@ -2,10 +2,12 @@
 
 <h1>Flights</h1>
 
-<%= render "flight_search_form" %>
+<%= render "search_form" %>
 
-<% if @results.empty? %>
-    <p>No flights match your query</p>
-<% else %>
-    <%= render "flight_picker_form" %>
+<% unless @results.nil? %>
+    <% if @results.any? %>
+        <%= render "picker_form" %>
+    <% else%>
+        <p>There are no matching results</p>
+    <% end %>
 <% end %>

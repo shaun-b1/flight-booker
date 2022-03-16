@@ -9,7 +9,7 @@
                                          ["San Francisco International Airport, CA", "SFO"],
                                          ["Seattle–Tacoma International Airport, WA", "SEA"],
                                          ["Harry Reid International Airport, NV", "LAS"],
-                                         ["Orlando International Airport, FL", "MCO"]], prompt: true, require: true %>
+                                         ["Orlando International Airport, FL", "MCO"]], {prompt: true}, required: true %>
     <%= form.label :arrival_airport, "Flying to:" %>
     <%= form.select :arrival_airport, [["Atlanta Hartsfield–Jackson International Airport, GA", "ATL"],
                                         ["Los Angeles International Airport, CA", "LAX"],
@@ -20,10 +20,10 @@
                                         ["San Francisco International Airport, CA", "SFO"],
                                         ["Seattle–Tacoma International Airport, WA", "SEA"],
                                         ["Harry Reid International Airport, NV", "LAS"],
-                                        ["Orlando International Airport, FL", "MCO"]], prompt: true, require:true %>
+                                        ["Orlando International Airport, FL", "MCO"]], {prompt: true}, required: true %>
     <%= form.label :passengers, "Number of Passengers:"%>
-    <%= form.select :passengers, 1..4, prompt: true, require: true %>
+    <%= form.select :passengers, 1..4, {prompt: true}, required: true %>
     <%= form.label :departure_date, "Select Travel Date:" %>
-    <%= form.date_field :departure_date %>
+    <%= form.date_field :departure_date, required: true %>
     <%= submit_tag("Find Flights", name: nil) %>
 <% end %>

@@ -15,7 +15,14 @@ class Flight < ApplicationRecord
     end
 
     def flight_information
-        "Departing at #{departure_time.strftime("%I:%M %p")} from #{departure_airport.airport_code}, arriving at #{(departure_time + flight_time.minutes).strftime("%I:%M %p")} in #{arrival_airport.airport_code}"
+        "Departing at #{departure_time_adjust} from #{departure_airport.airport_code}, arriving at #{arrival_time_adjust} at #{arrival_airport.airport_code}"
     end
 
+    def departure_time_adjust 
+        departure_time.strftime("%I:%M %p")
+    end
+
+    def arrival_time_adjust
+        (departure_time + flight_time.minutes).strftime("%I:%M %p")
+    end 
 end
