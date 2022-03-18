@@ -1,29 +1,62 @@
-<%= form_with url: "/flights", method: :get do |form| %>
-    <%= form.label :departure_airport, "Departing from:" %>
-    <%= form.select :departure_airport, [["Atlanta Hartsfield–Jackson International Airport, GA", "ATL"],
-                                         ["Los Angeles International Airport, CA", "LAX"],
-                                         ["O'Hare International Airport, IL", "ORD"],
-                                         ["Dallas/Fort Worth International Airport, TX", "DFW"],
-                                         ["Denver International Airport, CO", "DEN"],
-                                         ["John F. Kennedy International Airport, NY", "JFK"],
-                                         ["San Francisco International Airport, CA", "SFO"],
-                                         ["Seattle–Tacoma International Airport, WA", "SEA"],
-                                         ["Harry Reid International Airport, NV", "LAS"],
-                                         ["Orlando International Airport, FL", "MCO"]], {prompt: true}, required: true %>
-    <%= form.label :arrival_airport, "Flying to:" %>
-    <%= form.select :arrival_airport, [["Atlanta Hartsfield–Jackson International Airport, GA", "ATL"],
-                                        ["Los Angeles International Airport, CA", "LAX"],
-                                        ["O'Hare International Airport, IL", "ORD"],
-                                        ["Dallas/Fort Worth International Airport, TX", "DFW"],
-                                        ["Denver International Airport, CO", "DEN"],
-                                        ["John F. Kennedy International Airport, NY", "JFK"],
-                                        ["San Francisco International Airport, CA", "SFO"],
-                                        ["Seattle–Tacoma International Airport, WA", "SEA"],
-                                        ["Harry Reid International Airport, NV", "LAS"],
-                                        ["Orlando International Airport, FL", "MCO"]], {prompt: true}, required: true %>
-    <%= form.label :passengers, "Number of Passengers:"%>
-    <%= form.select :passengers, 1..4, {prompt: true}, required: true %>
-    <%= form.label :departure_date, "Select Travel Date:" %>
-    <%= form.date_field :departure_date, required: true %>
-    <%= submit_tag("Find Flights", name: nil) %>
-<% end %>
+<div class="tile pl-6">
+    <%= form_with url: "/flights", method: :get do |form| %>
+
+        <div class="field">
+            <%= form.label :departure_airport, "Departing from:" %>
+            <div class="control">
+                <div class="select is-info">
+                    <%= form.select :departure_airport, [["Atlanta Hartsfield–Jackson International Airport, GA", "ATL"],
+                                                        ["Los Angeles International Airport, CA", "LAX"],
+                                                        ["O'Hare International Airport, IL", "ORD"],
+                                                        ["Dallas/Fort Worth International Airport, TX", "DFW"],
+                                                        ["Denver International Airport, CO", "DEN"],
+                                                        ["John F. Kennedy International Airport, NY", "JFK"],
+                                                        ["San Francisco International Airport, CA", "SFO"],
+                                                        ["Seattle–Tacoma International Airport, WA", "SEA"],
+                                                        ["Harry Reid International Airport, NV", "LAS"],
+                                                        ["Orlando International Airport, FL", "MCO"]], {prompt: true}, required: true %>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= form.label :arrival_airport, "Flying to:" %>
+            <div class="control">
+                <div class="select is-info">
+                    <%= form.select :arrival_airport, [["Atlanta Hartsfield–Jackson International Airport, GA", "ATL"],
+                                                        ["Los Angeles International Airport, CA", "LAX"],
+                                                        ["O'Hare International Airport, IL", "ORD"],
+                                                        ["Dallas/Fort Worth International Airport, TX", "DFW"],
+                                                        ["Denver International Airport, CO", "DEN"],
+                                                        ["John F. Kennedy International Airport, NY", "JFK"],
+                                                        ["San Francisco International Airport, CA", "SFO"],
+                                                        ["Seattle–Tacoma International Airport, WA", "SEA"],
+                                                        ["Harry Reid International Airport, NV", "LAS"],
+                                                        ["Orlando International Airport, FL", "MCO"]], {prompt: true}, required: true %>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= form.label :passengers, "Number of Passengers:"%>
+            <div class="control">
+                <div class="select is-info">
+                    <%= form.select :passengers, 1..4, {prompt: true}, required: true %>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <%= form.label :departure_date, "Select Travel Date:" %>
+            <div class="control">
+                <%= form.date_field :departure_date, required: true %>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <%= submit_tag("Find Flights", name: nil, class: "button is-info") %>
+            </div>
+        </div>
+    <% end %>
+</div>

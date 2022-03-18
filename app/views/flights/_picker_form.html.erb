@@ -1,6 +1,24 @@
 <%= form_with url: "/bookings/new/", method: :get do |form| %>
+
   <%= form.hidden_field :passenger_count, value: params[:passengers] %> 
-  <%= form.collection_radio_buttons :flight, @results.order(departure_time: :asc), :id, :flight_information, {}, required: true, include_hidden: false %>
-  <%= submit_tag("Book Flights", name: nil) %>
+
+  <div class="field">
+    <%= form.collection_radio_buttons :flight, @results.order(departure_time: :asc), :id, :flight_information do |r| %>
+      <div class="control m-2">
+        <%= r.label do %>
+          <div class="radio m-2">
+            <%= r.radio_button + r.text %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <div class="control m-4">
+      <%= submit_tag("Book Flight", name: nil, class: "button is-info") %>
+    </div>
+  </div>
+
 <% end %>
 

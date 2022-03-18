@@ -12,11 +12,25 @@
   </head>
 
   <body>
-      <% flash.each do |type, msg| %>
-      <div>
+    <% flash.each do |type, msg| %>
+      <div class="notification is-danger mb-0">
         <%= msg %>
       </div>
     <% end %>
+
+    <header class="hero is-link is-medium">
+        <div class="hero-head">
+          <div class="container columns">
+            <div class="container m-4 ml-6 pl-6 column is-three-fifths">
+              <h1 class="title">Odin Air</h1>
+            </div>
+            <div class="container column is-one-fifth"></div>
+            <div class="container m-5 column is-one-fifth">
+              <p class="subtitle">The Best Way to Travel</p>
+            </div>
+          </div>
+        </div>
+    </header>
     
     <%= yield %>
   </body>
